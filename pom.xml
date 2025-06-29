@@ -12,6 +12,37 @@
         <maven.compiler.release>17</maven.compiler.release>
     </properties>
 
+     <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>5.11.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.18.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -26,11 +57,11 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.13.0</version>
             </plugin>
-            <!-- <plugin>
+            <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
             <version>3.3.0</version>
             </plugin>
-            <plugin>
+            <!-- <plugin>
             <artifactId>maven-jar-plugin</artifactId>
             <version>3.4.2</version>
             </plugin>
@@ -49,7 +80,7 @@
             <plugin>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
                 <version>3.6.1</version>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -58,7 +89,27 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin> -->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                <execution>
+                    <id>checkstyle-validation</id>
+                    <phase>verify</phase>
+                    <goals>
+                    <goal>check</goal>
+                    </goals>
+                </execution>
+                </executions>
+                <configuration>
+                <configLocation>checkstyle.xml</configLocation>
+                <encoding>UTF-8</encoding>
+                <consoleOutput>true</consoleOutput>
+                <failsOnError>true</failsOnError>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
