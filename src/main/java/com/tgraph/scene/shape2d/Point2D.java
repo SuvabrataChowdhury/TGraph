@@ -1,9 +1,9 @@
-package com.tgraph.scene.definition.point.impl;
+package com.tgraph.scene.shape2d;
 
 import java.util.List;
 
-import com.tgraph.scene.definition.point.Point;
-import com.tgraph.scene.definition.point.exceptions.InvalidPointOperationException;
+import com.tgraph.scene.Point;
+import com.tgraph.scene.exceptions.InvalidPointOperationException;
 
 /**
  * Implementation of a 2D point.
