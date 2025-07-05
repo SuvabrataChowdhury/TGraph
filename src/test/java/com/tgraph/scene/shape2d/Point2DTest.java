@@ -3,6 +3,7 @@ package com.tgraph.scene.shape2d;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -58,5 +59,14 @@ public class Point2DTest {
         p.setY(0);
         assertEquals(0, p.getY());
         assertIterableEquals(List.of(0,0), p.getCoords());
+    }
+
+    @DisplayName("Given two points in 2D with same coordinates, Both must be same")
+    @Test
+    public void equalityTest() {
+        Point2D p1 = new Point2D(p);
+
+        assertTrue(p.equals(p1));
+        assertTrue(p1.equals(p));
     }
 }
