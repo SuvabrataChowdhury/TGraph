@@ -1,8 +1,9 @@
-package com.tgraph.scene.definition.point.impl;
+package com.tgraph.scene.shape2d;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.tgraph.scene.definition.point.exceptions.InvalidPointOperationException;
+import com.tgraph.scene.exceptions.InvalidPointOperationException;
 
 @DisplayName("Point2D Test")
 public class Point2DTest {
@@ -58,5 +59,14 @@ public class Point2DTest {
         p.setY(0);
         assertEquals(0, p.getY());
         assertIterableEquals(List.of(0,0), p.getCoords());
+    }
+
+    @DisplayName("Given two points in 2D with same coordinates, Both must be same")
+    @Test
+    public void equalityTest() {
+        Point2D p1 = new Point2D(p);
+
+        assertTrue(p.equals(p1));
+        assertTrue(p1.equals(p));
     }
 }

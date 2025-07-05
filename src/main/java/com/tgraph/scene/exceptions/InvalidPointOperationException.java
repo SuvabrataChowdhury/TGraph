@@ -1,4 +1,4 @@
-package com.tgraph.scene.definition.point.exceptions;
+package com.tgraph.scene.exceptions;
 
 /**
  * Exception for any invalid operation on a point.
