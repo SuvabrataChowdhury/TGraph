@@ -11,7 +11,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.tgraph.scene.exceptions.InvalidPointOperationException;
-import com.tgraph.scene.shape2d.Point2D;
 
 @DisplayName("Point2D Test")
 public class Point2DTest {
