@@ -1,8 +1,8 @@
-package com.tgraph.scene.definition.point;
+package com.tgraph.scene;
 
 import java.util.List;
 
-import com.tgraph.scene.definition.point.exceptions.InvalidPointOperationException;
+import com.tgraph.scene.exceptions.InvalidPointOperationException;
 
 /**
  * Interface for a Point in any dimension.
