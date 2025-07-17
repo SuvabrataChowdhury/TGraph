@@ -28,3 +28,6 @@ target
 
 # IDE specific file
 .vscode
+
+# Project Specific Dummy Application file
+/src/main/java/Application.java

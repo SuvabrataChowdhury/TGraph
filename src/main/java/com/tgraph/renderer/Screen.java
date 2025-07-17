@@ -1,43 +1,22 @@
 package com.tgraph.renderer;
 
+import java.util.List;
+
+import com.tgraph.scene.Point;
+import com.tgraph.scene.Shape;
+
 /**
- * An abstracted representation of physical screen where Shapes are to be rendered.
+ * An interface defining all generic functionalities of any Screen.
+ * 
  * @author Suvabrata Chowdhury
  */
-//Simplest Implementation of Screen which renders to Terminal
-public class Screen {
-    private int height;
-    private int width;
-    
-    private char[][] grid;
+public interface Screen<S extends Shape<? extends Point>, T extends RenderableShape<S, ?>> {
+    public int getHeight();
+    public int getWidth();
 
-    public Screen(int height, int width) {
-        this.height = height;
-        this.width = width;
+    public String getOutput();
+    public T render(S shape);
+    public void flush();
 
-        grid = new char[height][width];
-
-        //TODO: too low level access. delegate it to some other module
-        for (int i=0; i<height; i++) {
-            for (int j=0; j<width; j++) {
-                grid[i][j] = ' ';
-            }
-        }
-    }
-
-    //TODO: Be able to render an entire shape
-    public void render(char c, int x, int y) {
-        grid[x][y] = c;
-    }
-
-    public void display() {
-        //TODO: too low level access. delegate it to some other module
-        for (int i=0; i<height; i++) {
-            for (int j=0; j<width; j++) {
-                System.out.print(grid[i][j]);
-            }
-
-            System.out.println("");
-        }
-    }
+    public List<T> getRenderableShapes();
 }
