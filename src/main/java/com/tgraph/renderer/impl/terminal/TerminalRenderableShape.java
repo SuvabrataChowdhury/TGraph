@@ -3,7 +3,12 @@ package com.tgraph.renderer.impl.terminal;
 import com.tgraph.renderer.RenderableShape;
 import com.tgraph.scene.shape2d.Shape2D;
 
-public class TerminalRenderableShape implements RenderableShape<Shape2D,TerminalStyle>{
+/**
+ * Implementation of all shapes that are renderable on terminal.
+ * 
+ * @author Suvabrata Chowdhury
+ */
+public class TerminalRenderableShape implements RenderableShape<Shape2D, TerminalStyle>{
     private Shape2D shape;
     private TerminalStyle style;
 
